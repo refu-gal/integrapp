@@ -21,7 +21,7 @@ var db = (function(config){
 
     var read = function(database){
         return function(collection) {
-            return firebase.database().ref(collection);
+            return database.ref(collection);
         };
 
     }

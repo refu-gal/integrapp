@@ -13,8 +13,13 @@ var config = (function(){
         needs: 'needs'
     };
 
+    var setup = {
+        needs_preview: 4
+    };
+
     return {
         firebase: firebase,
-        collections: collections
+        collections: collections,
+        setup: setup
     }
 })();

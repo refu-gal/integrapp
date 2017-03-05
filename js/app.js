@@ -66,5 +66,12 @@
 
     $('#result_error, #result_ok').hide();
 
+    db.read(config.collections.needs)
+        .orderByChild('publish_time')
+        .limitToLast(config.setup.needs_preview)
+        .on("value", function (snapshot) {
+            var needs = Object.values(needs.val()).reverse();
+
+    });
 
 })(config, db);
