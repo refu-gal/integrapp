@@ -2090,12 +2090,8 @@
 
 		}
 
-	#logo {
-		background: url("../../images/logo.png");
-	}
-
 	#intro {
-		background: url("images/overlay.png"), url("../../images/forest.jpg");
+		background: url("images/overlay.png"), url("../../images/atardecer.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, bottom center;
@@ -2103,7 +2099,7 @@
 	}
 
 	#help {
-		background: url("images/overlay.png"), url("../../images/lake.jpg");
+		background: url("images/overlay.png"), url("../../images/sun.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
@@ -2112,7 +2108,7 @@
 	#contact {
 		overflow: hidden;
 		padding-bottom: 0;
-		background: url("images/overlay.png"), url("../../images/tree.jpg");
+		background: url("images/overlay.png"), url("../../images/pantalones.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
