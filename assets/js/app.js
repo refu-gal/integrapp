@@ -65,7 +65,11 @@
     };
 
     var buildNeedNode = function (need) {
-        return '<div>' + need.location + ' - ' + need.language + ' - ' + need.alias + '</div>';
+        return '<li>' +
+                    '<span class="needs-preview-column column-20">' + need.location + '</span>' +
+                    '<span class="needs-preview-column column-20">' + need.language + '</span>' +
+                    '<span class="needs-preview-column column-60">' + need.alias + '</span>' +
+                '</li>';
     };
 
     $('#publish').click(function () {
