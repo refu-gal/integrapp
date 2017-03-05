@@ -37,6 +37,7 @@ class AltaRefugiadoPage extends React.Component {
 
 
     render() {
+        debugger;
         return <div>
             <RefugiadoForm necesidades={[{name: 'Trabajo'}, {name: 'Sanidad'}]}
                 onSave={this.onSave}
