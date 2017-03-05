@@ -66,16 +66,15 @@
 
     var formatNeeds = function(needs){
 
-        var needContent = '';
-        $(needs).each(function(idx, val){
+        var needContent = [];
 
+        $(needs).each(function(idx, val){
             if(val){
-                needContent += '<li class="needs-item">' + config.needList[idx] + '</li>';
+                needContent.push(config.needList[idx]);
             }
         });
 
-        return '<ul>' + needContent
-            + '</ul>' ;
+        return needContent.join(', ');
     }
 
     var buildNeedNode = function (need) {
