@@ -101,7 +101,7 @@
 
             var needs = Object.values(snapshot.val()).reverse();
             var needsPreviewContainer = $('#needs-preview');
-            $('#needs-preview.items').remove();
+            $('#needs-preview .items').remove();
             needs.forEach((need) => {
                 needsPreviewContainer.append(buildNeedNode(need));
             });
