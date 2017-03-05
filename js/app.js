@@ -23,27 +23,48 @@
     };
 
     var showTip = function () {
-        $('#error').show();
+        $('#result_error').show();
     };
 
-    var getUserData = function(){
-        if(!isValid()) {
-            showTip();
-            return false;
-        }
-
+    var getFieldValues = function () {
         return {
             alias: $('#alias-field').val(),
             contact: $('#contact-field').val(),
             needs: getNeeds(),
             publish_time: (new Date()).getTime()
+        };
+    };
+
+    var cleanFields = function () {
+        $('#alias-field').val('');
+        $('#contact-field').val('');
+
+        $('input:checkbox.need-field').each(function () {
+            this.checked = false;
+        });
+    };
+
+    var getUserData = function(){
+        $('#result_error, #result_ok').hide();
+        if(!isValid()) {
+            showTip();
+            return false;
         }
+
+        $('#result_ok').show();
+
+        var userRequestValues = getFieldValues();
+
+        cleanFields();
+
+        return userRequestValues;
     };
 
     $('#publish').click(function () {
         db.writeToList(config.collections.needs, getUserData());
     });
 
-    $('#error').hide();
+    $('#result_error, #result_ok').hide();
+
 
 })(config, db);

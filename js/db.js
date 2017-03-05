@@ -19,8 +19,16 @@ var db = (function(config){
         }
     }
 
+    var read = function(database){
+        return function(collection) {
+            return firebase.database().ref(collection);
+        };
+
+    }
+
     return {
         write: write(database),
-        writeToList: writeToList(database)
+        writeToList: writeToList(database),
+        read: read(database)
     }
 })(config);

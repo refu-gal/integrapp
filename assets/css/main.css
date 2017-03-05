@@ -2141,3 +2141,11 @@
 			}
 
 		}
+
+.message_error{
+	color:darkred;
+}
+
+.message_ok{
+	color:lightgreen;
+}
