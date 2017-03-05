@@ -18,9 +18,12 @@ var config = (function(){
         needs_preview: 4
     };
 
+    var needList = ['Amigos', 'Traducción', 'Sanidad', 'Educación', 'Trabajo', 'Vivienda', 'Comida', 'Ropa', 'Cuidado de niños'];
+
     return {
         firebase: firebase,
         collections: collections,
-        setup: setup
+        setup: setup,
+        needList: needList
     }
 })();

@@ -64,11 +64,25 @@
         return userRequestValues;
     };
 
+    var formatNeeds = function(needs){
+
+        var needContent = '';
+        $(needs).each(function(idx, val){
+
+            if(val){
+                needContent += '<li class="needs-item">' + config.needList[idx] + '</li>';
+            }
+        });
+
+        return '<ul>' + needContent
+            + '</ul>' ;
+    }
+
     var buildNeedNode = function (need) {
         return '<li>' +
                     '<span class="needs-preview-column column-20">' + need.location + '</span>' +
                     '<span class="needs-preview-column column-20">' + need.language + '</span>' +
-                    '<span class="needs-preview-column column-60">' + need.alias + '</span>' +
+                    '<span class="needs-preview-column column-60">' + formatNeeds(need.needs) + '</span>' +
                 '</li>';
     };
 

@@ -2193,3 +2193,9 @@
 .column-60{
 	width: 40%;
 }
+
+.needs-item{
+	float: left;
+	padding-left: 4px;
+	padding-right: 4px;
+}
