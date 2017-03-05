@@ -78,11 +78,12 @@
     }
 
     var buildNeedNode = function (need) {
-        return '<li>' +
-                    '<span class="needs-preview-column column-20">' + need.location + '</span>' +
-                    '<span class="needs-preview-column column-20">' + need.language + '</span>' +
-                    '<span class="needs-preview-column column-60">' + formatNeeds(need.needs) + '</span>' +
-                '</li>';
+        return '<tr class="items">' +
+                    '<td class="item-field">' + need.location + '</td>' +
+                    '<td class="item-field">' + need.language + '</td>' +
+                    '<td class="item-field">' + formatNeeds(need.needs) + '</td>' +
+                    '<td class="item-field"><button class="btn btn-primary">Ayudar</button></td>' +
+                '</tr>';
     };
 
     $('#publish').click(function () {
@@ -100,6 +101,7 @@
 
             var needs = Object.values(snapshot.val()).reverse();
             var needsPreviewContainer = $('#needs-preview');
+            $('#needs-preview.items').remove();
             needs.forEach((need) => {
                 needsPreviewContainer.append(buildNeedNode(need));
             });
