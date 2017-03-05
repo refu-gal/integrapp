@@ -4,7 +4,7 @@ const App = ({children}) => {
     return (
         <div className="container-fluid">
             <div className="page-header">
-                <h1>RAE - <small>Sistema publicación de consultas</small></h1>
+                <h1>Needy - <small>Alta</small></h1>
             </div>
             <div>
                 {children}
