@@ -12,7 +12,7 @@
     var isValid = function(){
 
         var valid = true;
-        $('#alias-field, #contact-field').each(function(){
+        $('#alias-field, #contact-field, #language-field, #location-field').each(function(){
             valid = valid && $(this).val().length > 0;
         });
 
@@ -30,6 +30,8 @@
         return {
             alias: $('#alias-field').val(),
             contact: $('#contact-field').val(),
+            location: $('#location-field').val(),
+            language: $('#language-field').val(),
             needs: getNeeds(),
             publish_time: (new Date()).getTime()
         };
@@ -38,6 +40,8 @@
     var cleanFields = function () {
         $('#alias-field').val('');
         $('#contact-field').val('');
+        $('#location-field').val('');
+        $('#language-field').val('');
 
         $('input:checkbox.need-field').each(function () {
             this.checked = false;
@@ -60,6 +64,10 @@
         return userRequestValues;
     };
 
+    var buildNeedNode = function (need) {
+        return '<div>' + need.location + ' - ' + need.language + ' - ' + need.alias + '</div>';
+    };
+
     $('#publish').click(function () {
         db.writeToList(config.collections.needs, getUserData());
     });
@@ -70,8 +78,14 @@
         .orderByChild('publish_time')
         .limitToLast(config.setup.needs_preview)
         .on("value", function (snapshot) {
-            var needs = Object.values(needs.val()).reverse();
 
+            if(snapshot.val() == null) return;
+
+            var needs = Object.values(snapshot.val()).reverse();
+            var needsPreviewContainer = $('#needs-preview');
+            needs.forEach((need) => {
+                needsPreviewContainer.append(buildNeedNode(need));
+            });
     });
 
 })(config, db);

@@ -478,7 +478,7 @@
 	body, input, textarea, select {
 		font-family: "Source Sans Pro", "sans-serif";
 		font-weight: 300;
-		font-size: 18pt;
+		font-size: 24pt;
 		line-height: 1.75em;
 		color: #39454b;
 		letter-spacing: 0.025em;
@@ -487,7 +487,7 @@
 		@media screen and (max-width: 1920px) {
 
 			body, input, textarea, select {
-				font-size: 17pt;
+				font-size: 22pt;
 			}
 
 		}
@@ -495,7 +495,7 @@
 		@media screen and (max-width: 1680px) {
 
 			body, input, textarea, select {
-				font-size: 15pt;
+				font-size: 22pt;
 			}
 
 		}
@@ -503,7 +503,7 @@
 		@media screen and (max-width: 1280px) {
 
 			body, input, textarea, select {
-				font-size: 13pt;
+				font-size: 20pt;
 			}
 
 		}
@@ -511,7 +511,7 @@
 		@media screen and (max-width: 1000px) {
 
 			body, input, textarea, select {
-				font-size: 13pt;
+				font-size: 20pt;
 			}
 
 		}
@@ -519,7 +519,7 @@
 		@media screen and (max-width: 736px) {
 
 			body, input, textarea, select {
-				font-size: 12pt;
+				font-size: 20pt;
 				line-height: 1.5em;
 			}
 
@@ -2090,6 +2090,10 @@
 
 		}
 
+	#logo {
+		background: url("../../images/logo.png");
+	}
+
 	#intro {
 		background: url("images/overlay.png"), url("../../images/forest.jpg");
 		background-size: 256px 256px, cover;
@@ -2148,4 +2152,17 @@
 
 .message_ok{
 	color:lightgreen;
+}
+
+.needs-list{
+	font-size:0.8em;
+}
+
+.needs-column{
+	float: left;
+}
+
+.center-column{
+	margin-left: 1em;
+	margin-right: 1em;
 }
