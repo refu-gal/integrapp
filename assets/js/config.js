@@ -11,7 +11,8 @@ var config = (function(){
 
 
     var collections = {
-        needs: 'needs'
+        needs: 'needs',
+	contacts: 'contacts'
     };
 
     var setup = {
