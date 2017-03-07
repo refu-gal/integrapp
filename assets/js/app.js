@@ -22,8 +22,22 @@
         return valid;
     };
 
+    var isContactValid = function(){
+
+        var valid = true;
+        $('#contact-name, #contact-email, #contact-message').each(function(){
+            valid = valid && $(this).val().length > 0;
+        });
+
+        return valid;
+    };
+
     var showTip = function () {
         $('#result_error').show();
+    };
+
+    var showContactTip = function () {
+        $('#contact_error').show();
     };
 
     var getFieldValues = function () {
@@ -37,6 +51,14 @@
         };
     };
 
+    var getContactFieldValues = function () {
+        return {
+            name: $('#contact-name').val(),
+            email: $('#contact-email').val(),
+            message: $('#contact-message').val()
+        };
+    };
+
     var cleanFields = function () {
         $('#alias-field').val('');
         $('#contact-field').val('');
@@ -46,6 +68,12 @@
         $('input:checkbox.need-field').each(function () {
             this.checked = false;
         });
+    };
+
+    var cleanContactFields = function () {
+        $('#contact-name').val('');
+        $('#contact-email').val('');
+        $('#contact-message').val('');
     };
 
     var getUserData = function(){
@@ -62,6 +90,21 @@
         cleanFields();
 
         return userRequestValues;
+    };
+
+    var getContactData = function(){
+        $('#contact_error, #contact_ok').hide();
+        if(!isContactValid()) {
+            showContactTip();
+            return false;
+        }
+
+        $('#contact_ok').show();
+
+        var contactRequestValues = getContactFieldValues();
+        cleanContactFields();
+
+        return contactRequestValues;
     };
 
     var formatNeeds = function(needs){
@@ -90,7 +133,12 @@
         db.writeToList(config.collections.needs, getUserData());
     });
 
+    $('#send-contact').click(function () {
+        db.writeToList(config.collections.contacts, getContactData());
+    });
+
     $('#result_error, #result_ok').hide();
+    $('#contact_error, #contact_ok').hide();
 
     db.read(config.collections.needs)
         .orderByChild('publish_time')
@@ -104,6 +152,18 @@
             $('#needs-preview .items').remove();
             needs.forEach((need) => {
                 needsPreviewContainer.append(buildNeedNode(need));
+            });
+    });
+
+    db.read(config.collections.contacts)
+        .on("value", function (snapshot) {
+
+            if(snapshot.val() == null) return;
+
+            var contacts = Object.values(snapshot.val());
+            console.log('Contacts:');
+            contacts.forEach((contact) => {
+                console.log(contact);
             });
     });
 

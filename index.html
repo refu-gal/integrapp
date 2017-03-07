@@ -119,14 +119,16 @@
 						<h2>¿Algo que nos quieras contar?</h2>
 					</header>
 					<div class="box">
-						<form method="post" action="#">
-							<div class="field half first"><input type="text" name="name" placeholder="Nombre" /></div>
-							<div class="field half"><input type="email" name="email" placeholder="Correo electrónico" /></div>
-							<div class="field"><textarea name="message" placeholder="Mensaje" rows="6"></textarea></div>
+						<div class="form">
+							<div class="field half first"><input id="contact-name" type="text" name="name" placeholder="Nombre" /></div>
+							<div class="field half"><input id="contact-email" type="email" name="email" placeholder="Correo electrónico" /></div>
+							<div class="field"><textarea id="contact-message" name="message" placeholder="Mensaje" rows="6"></textarea></div>
 							<ul class="actions">
-								<li><input type="submit" value="Enviar" /></li>
+								<li><button id="send-contact">Enviar</button></li>
 							</ul>
-						</form>
+						</div>
+						<div id="contact_error" class="message_error">Campos obligatorios</div>
+						<div id="contact_ok" class="message_ok">Gracias por ponerte en contacto con nosotros, atenderemos tu cuestión cuanto antes!</div>
 					</div>
 				</div>
 			</section>
