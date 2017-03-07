@@ -3,10 +3,12 @@ var config = (function(){
     //Just for prototyping
     //Kid's don't repeat this at home
     var firebase ={
-        apiKey: "AIzaSyCz8TiQSqfZwEMWed4ZRlJFIp1NcwDcnfM",
-        authDomain: "meanit-68d65.firebaseapp.com",
-        databaseURL: "https://meanit-68d65.firebaseio.com",
-        storageBucket: "meanit-68d65.appspot.com",
+        apiKey: "AIzaSyBCfZFARr9-Oxe1d49fqXatfLg6X3BVwfk",
+        authDomain: "meanit-e00cb.firebaseapp.com",
+        databaseURL: "https://meanit-e00cb.firebaseio.com",
+        storageBucket: "meanit-e00cb.appspot.com",
+        messagingSenderId: "1042871055455"
+
     };
 
 
